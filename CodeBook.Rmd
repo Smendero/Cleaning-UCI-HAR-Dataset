@@ -2,7 +2,7 @@
 title: "CodeBook.rmd"
 author: "Emily Smenderovac"
 date: "April 8, 2016"
-output: pdf_document
+output: html_document
 ---
 
 ```{r setup, include=FALSE}
@@ -99,7 +99,9 @@ names(alldata) <- c(colnames(alldata[,1:3]), as.character(features[,2]))
 meanstdvec <- grep("[Mm]ean\\(\\)|[Ss]td\\(\\)", colnames(alldata))
 meanstddata <- alldata[, c(1:3, meanstdvec)]
 ```
-Original variables summarized: 
+
+Original variables from X_test.txt and X_train.txt summarized: 
+
 ```{r eval=TRUE}
 colnames(alldata)[meanstdvec]
 ```

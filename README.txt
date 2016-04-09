@@ -28,6 +28,16 @@ More details on these datasets can be found in the UCI HAR Dataset README.txt fi
 
 Data from train and test subjects were merged and averages by subject id and type of activity were used to summarize the data.
 
+The files included in the tidy dataset are:
+
+README.txt
+
+CodeBook.Rmd
+
+CodeBook.md
+
+run_analysis.R
+
 The tidy data set created with the run_analysis.R script summarizes the mean of select variables for each subject for different activities.
 The script is annotated to inform readers on the data download, merger, relabeling and tidying.
 

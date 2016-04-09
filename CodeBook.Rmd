@@ -99,13 +99,15 @@ names(alldata) <- c(colnames(alldata[,1:3]), as.character(features[,2]))
 meanstdvec <- grep("[Mm]ean\\(\\)|[Ss]td\\(\\)", colnames(alldata))
 meanstddata <- alldata[, c(1:3, meanstdvec)]
 ```
-Number of measurements on Standard Deviation and Mean: `r length(meanstdvec)`
+###Number of measurements on Standard Deviation and Mean: `r length(meanstdvec)`
 
-Original variables from X_test.txt and X_train.txt summarized: 
+
+####Original variables from X_test.txt and X_train.txt summarized: 
 
 ```{r eval=TRUE}
 colnames(alldata)[meanstdvec]
 ```
+Details on the units utilized for the features in the datasets can be found in the README.txt and features_info.txt files in the UCI HAR Dataset folder unzipped for this analysis.
 
 ```{r rename_things}
 ## 3.Uses descriptive activity names to name the activities in the data set
@@ -131,13 +133,13 @@ tidydata<-aggregate(. ~subject + activity, meanstddata, mean)
 sumfunction= "mean"
 tidydata <- arrange(tidydata, subject, activity)
 ```
-Final data variables renamed:
+####Final data variables renamed:
 ```{r eval=TRUE}
 colnames(tidydata)
 ```
-Summary applied to data :  `r sumfunction`
+####Summary applied to data :  `r sumfunction`
 
-Data summaries were based on euclidean vector data in a range of -1 : 1.
+####Data summaries were based on euclidean vector data in a range of -1 : 1.
 
 
 

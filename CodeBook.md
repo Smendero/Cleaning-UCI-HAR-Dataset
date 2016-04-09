@@ -15,9 +15,10 @@ output: html_document
 
 
 
-Number of measurements on Standard Deviation and Mean: 66
+###Number of measurements on Standard Deviation and Mean: 66
 
-Original variables from X_test.txt and X_train.txt summarized: 
+
+####Original variables from X_test.txt and X_train.txt summarized: 
 
 
 ```
@@ -55,11 +56,12 @@ Original variables from X_test.txt and X_train.txt summarized:
 ## [63] "fBodyBodyGyroMag-mean()"     "fBodyBodyGyroMag-std()"     
 ## [65] "fBodyBodyGyroJerkMag-mean()" "fBodyBodyGyroJerkMag-std()"
 ```
+Details on the units utilized for the features in the datasets can be found in the README.txt and features_info.txt files in the UCI HAR Dataset folder unzipped for this analysis.
 
 
 
 
-Final data variables renamed:
+####Final data variables renamed:
 
 ```
 ##  [1] "subject"                                                   
@@ -132,9 +134,9 @@ Final data variables renamed:
 ## [68] "frequencyBodyAccelerationGyroscopeJerkMagnitude-mean()"    
 ## [69] "frequencyBodyAccelerationGyroscopeJerkMagnitude-std()"
 ```
-Summary applied to data :  mean
+####Summary applied to data :  mean
 
-Data summaries were based on euclidean vector data in a range of -1 : 1.
+####Data summaries were based on euclidean vector data in a range of -1 : 1.
 
 
 

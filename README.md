@@ -25,11 +25,11 @@ https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Datas
 
 - 'test/subject_test.txt'
 
-More details on these datasets can be found in the UCI HAR Dataset README.txt file as well as the features_info.txt file. 
+Details on these datasets can be found in the UCI HAR Dataset README.txt file as well as the features_info.txt file found in the unzipped directory downloaded from the link above. 
 
 Data from train and test subjects were merged and averages by subject id and type of activity were used to summarize the data.
 
-## The files included in the tidy dataset are:
+## The files included for the production of the tidy dataset are:
 
 README.md
 
@@ -39,8 +39,8 @@ CodeBook.md
 
 run_analysis.R
 
-#The tidy data set created with the run_analysis.R script summarizes the mean of select variables for each subject for different activities.
-#The script is annotated to inform readers on the data download, merger, relabeling and tidying.
+###The tidy data set created with the run_analysis.R script summarizes the mean of select variables for each subject for different activities.
+###The script is annotated to inform readers on the data download, merger, relabeling and tidying.
 The main steps of the run_analysis.R script are: 
 
 1. download data into R from the UCI HAR Dataset
@@ -56,7 +56,7 @@ The main steps of the run_analysis.R script are:
 6.Create a tidy dataset.
 
 
-##The variables in the tidy dataset produced from the script are as follows:
+##The variables in the tiny dataset produced from the script are as follows:
 
 [1] "subject" - subject id  
 

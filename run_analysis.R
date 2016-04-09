@@ -1,0 +1,110 @@
+#### download and read in dataset
+
+### download UCI HAR Dataset files from
+### https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+## unzip folders into working directory
+
+#set original working directory
+orig <- getwd()
+#get label information files
+setwd("UCI HAR Dataset")
+activitylabels <- read.table("activity_labels.txt")
+features <- read.table("features.txt")
+
+#### upload train tables into R and merge dataset ####
+setwd("train")
+
+## section to repeat for test dataset begins ##
+# set empty list to fill
+files<- list()
+filelist <- list.files(pattern="*.txt$")
+# set number so previously uploaded files aren't over written
+aladded <- length(filelist)+1
+# upload each csv in directory to list
+for (i in 1:length(filelist)){files[[i]]<- read.table(filelist[i])}
+## section to repeat for test dataset ends ##
+
+# subtracting the "_train.txt" portion of the names)
+filelist <- gsub("_train.txt", "", filelist)
+
+# rename features in dataset with appropriate labels, 
+# and levels for activity labels
+colnames(files[[2]]) <- as.character(features[,2])
+# add element to list that has the dataset the values come from
+files[[1]] <- data.frame(subject=files[[1]][,1], datset="train")
+# put everything into a train list
+train <- data.frame(files)
+colnames(train) <- c(colnames(train)[1:ncol(train)-1], "activity")
+# remove unnecessary files
+rm(files, filelist)
+
+#set to original wd
+setwd(orig)
+
+#### upload test tables into R and merge dataset ####
+setwd("UCI HAR Dataset")
+setwd("test")
+
+## section to repeat for test dataset begins ##
+# set empty list to fill
+files<- list()
+filelist <- list.files(pattern="*.txt$")
+# set number so previously uploaded files aren't over written
+aladded <- length(filelist)+1
+# upload each csv in directory to list
+for (i in 1:length(filelist)){files[[i]]<- read.table(filelist[i])}
+## section to repeat for test dataset ends ##
+
+# subtracting the "_test.txt" portion of the names)
+filelist <- gsub("_test.txt", "", filelist)
+
+# rename features in dataset with appropriate labels, 
+# and levels for activity labels
+colnames(files[[2]]) <- as.character(features[,2])
+# add element to list that has the dataset the values come from
+files[[1]] <- data.frame(subject=files[[1]][,1], datset="test")
+# put everything into a train list
+test <- data.frame(files)
+colnames(test) <- c(colnames(test)[1:ncol(test)-1], "activity")
+# remove unnecessary files
+rm(files, filelist)
+
+#set to original wd
+setwd(orig)
+
+## 1.Merges the training and the test sets to create one data set.
+## put both sets of lists together
+alldata <- rbind(test, train)
+remove(test, train)
+alldata <- alldata[,c(1:2, 564, 3:563)]
+## make sure feature names are correct
+names(alldata) <- c(colnames(alldata[,1:3]), as.character(features[,2]))
+
+## 2.Extracts only the measurements on the mean and standard deviation 
+## for each measurement. 
+meanstdvec <- grep("[Mm]ean\\(\\)|[Ss]td\\(\\)", colnames(alldata))
+meanstddata <- alldata[, c(1:3, meanstdvec)]
+
+## 3.Uses descriptive activity names to name the activities in the data set
+## add descriptive activities to the activities column
+meanstddata$activity <- factor(meanstddata$activity)
+levels(meanstddata$activity) <- as.character(activitylabels[,2])
+
+## 4.Appropriately labels the data set with descriptive variable names.
+colnames(meanstddata) <- gsub("^t", "time", colnames(meanstddata))
+colnames(meanstddata) <- gsub("^f", "frequency", colnames(meanstddata))
+colnames(meanstddata) <- gsub("[Gg]yro", "Gyroscope", colnames(meanstddata))
+colnames(meanstddata) <- gsub("[Aa]cc", "Accelerometer", colnames(meanstddata))
+colnames(meanstddata) <- gsub("[Mm]ag", "Magnitude", colnames(meanstddata))
+colnames(meanstddata) <- gsub("BodyBody", "Body", colnames(meanstddata))
+colnames(meanstddata) <- gsub("*Body*", "BodyAcceleration", colnames(meanstddata))
+
+## 5.From the data set in step 4, creates a second, independent tidy data 
+## set with the average of each variable for each activity and each subject.
+library(plyr)
+tidydata<-aggregate(. ~subject + activity, meanstddata, mean)
+tidydata <- arrange(tidydata, subject, activity)
+write.table(tidydata, file = "tidydata.txt",row.name=FALSE)
+
+rm(activitylabels, alldata, features, meanstddata, 
+   tidydata, aladded,i, meanstdvec, orig)

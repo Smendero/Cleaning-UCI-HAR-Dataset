@@ -60,7 +60,7 @@ The main steps of the run_analysis.R script are:
 
 [1] "subject" - subject id  
 
- [2] "activity" - physical activity being conducted                                                 
+ [2] "activity" - physical activity being conducted one of 6 variables (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING)                                                 
  [3] "datset" - whether the data came from the test or training dataset   
  
 The remaining data are means of different measures derived from Gyroscope and Accelerometer data for either body acceleration or gravity acceleration.

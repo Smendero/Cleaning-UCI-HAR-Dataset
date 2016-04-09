@@ -26,7 +26,10 @@ The files used in the analysis were in the UCI HAR Dataset directory
 
 More details on these datasets can be found in the UCI HAR Dataset README.txt file as well as the features_info.txt file. 
 
-The tidy data set created with this script summarizes the mean of select variables for each subject for different activities
+Data from train and test subjects were merged and averages by subject id and type of activity were used to summarize the data.
+
+The tidy data set created with the run_analysis.R script summarizes the mean of select variables for each subject for different activities.
+The script is annotated to inform readers on the data download, merger, relabeling and tidying.
 
 The variables in the dataset are as follows:
 [1] "subject" - subject id  
@@ -59,5 +62,7 @@ The variables in the dataset are as follows:
  as follows for the remaining variables... 
  
  A full list of original variables included in the dataset is availiable in the 
- codebook.Rmd and can be regenerated if the dataset should change. Data was renamed to be more informative. 
+ codebook.Rmd and can be regenerated if the dataset should change. Data was renamed to be more informative.
+ 
+ 
 

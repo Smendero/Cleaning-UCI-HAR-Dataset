@@ -2,7 +2,7 @@
 title: "CodeBook.rmd"
 author: "Emily Smenderovac"
 date: "April 8, 2016"
-output: html_document
+output: pdf_document
 ---
 
 ```{r setup, include=FALSE}

@@ -2,7 +2,7 @@
 title: "CodeBook.rmd"
 author: "Emily Smenderovac"
 date: "April 8, 2016"
-output: pdf_document
+output: html_document
 ---
 
 
@@ -15,7 +15,9 @@ output: pdf_document
 
 
 
-Original variables summarized: 
+
+Original variables from X_test.txt and X_train.txt summarized: 
+
 
 ```
 ##  [1] "tBodyAcc-mean()-X"           "tBodyAcc-mean()-Y"          
@@ -131,7 +133,7 @@ Final data variables renamed:
 ```
 Summary applied to data :  mean
 
-Data summaries were based on data in a range on -1 : 1.
+Data summaries were based on euclidean data in a range of -1 : 1.
 
 
 

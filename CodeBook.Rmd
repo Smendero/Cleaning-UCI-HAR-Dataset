@@ -136,7 +136,7 @@ colnames(tidydata)
 ```
 Summary applied to data :  `r sumfunction`
 
-Data summaries were based on data in a range on -1 : 1.
+Data summaries were based on euclidean data in a range of -1 : 1.
 
 
 

@@ -15,6 +15,7 @@ output: html_document
 
 
 
+Number of measurements on Standard Deviation and Mean: 66
 
 Original variables from X_test.txt and X_train.txt summarized: 
 
@@ -133,7 +134,7 @@ Final data variables renamed:
 ```
 Summary applied to data :  mean
 
-Data summaries were based on euclidean data in a range of -1 : 1.
+Data summaries were based on euclidean vector data in a range of -1 : 1.
 
 
 

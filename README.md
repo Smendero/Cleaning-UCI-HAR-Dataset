@@ -1,12 +1,13 @@
 Getting and Cleaning Data Assignment 4 README.txt
+==================================================
 
-Emily Smenderovac 
+Author: Emily Smenderovac 
 
 The data utilized to create this tidy dataset were files from the 
 UCI HAR data set retrieved from 
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip on April 8th, 2016.
 
-The files used in the analysis were in the UCI HAR Dataset directory
+## The files used in the analysis were in the UCI HAR Dataset directory
 
 - 'features.txt': List of all features.
 
@@ -28,9 +29,9 @@ More details on these datasets can be found in the UCI HAR Dataset README.txt fi
 
 Data from train and test subjects were merged and averages by subject id and type of activity were used to summarize the data.
 
-The files included in the tidy dataset are:
+## The files included in the tidy dataset are:
 
-README.txt
+README.md
 
 CodeBook.Rmd
 
@@ -38,16 +39,31 @@ CodeBook.md
 
 run_analysis.R
 
-The tidy data set created with the run_analysis.R script summarizes the mean of select variables for each subject for different activities.
-The script is annotated to inform readers on the data download, merger, relabeling and tidying.
+#The tidy data set created with the run_analysis.R script summarizes the mean of select variables for each subject for different activities.
+#The script is annotated to inform readers on the data download, merger, relabeling and tidying.
+The main steps of the run_analysis.R script are: 
 
-The variables in the dataset are as follows:
+1. download data into R from the UCI HAR Dataset
+
+2.Merges the training and the test sets to create one data set
+
+3.Extracts only the measurements on the mean and standard deviation for each measurement. 
+
+4.Uses descriptive activity names to name the activities in the data set add descriptive activities to the activities column
+
+5.Appropriately labels the data set with descriptive variable names.
+
+6.Create a tidy dataset.
+
+
+##The variables in the tidy dataset produced from the script are as follows:
+
 [1] "subject" - subject id  
 
  [2] "activity" - physical activity being conducted                                                 
  [3] "datset" - whether the data came from the test or training dataset   
  
- The remaining data are means of different measures derived from Gyroscope and Accelerometer data for either body acceleration or gravity acceleration.
+The remaining data are means of different measures derived from Gyroscope and Accelerometer data for either body acceleration or gravity acceleration.
  
  [4] "timeBodyAccelerationAccelerometer-mean()-X"  
  
@@ -72,7 +88,7 @@ The variables in the dataset are as follows:
  as follows for the remaining variables... 
  
  A full list of original variables included in the dataset is availiable in the 
- codebook.Rmd and can be regenerated if the dataset should change. Data was renamed to be more informative.
+ CodeBook.md and can be regenerated from CodeBook.Rmd if the dataset should change. Data was renamed to be more informative.
  
  
 
